@@ -1,11 +1,11 @@
 {
     "title": "Resume",
-    "name": "startbootstrap-resume",
+    "name": "clydejr-resume",
     "version": "5.0.8",
     "scripts": {
         "start": "node_modules/.bin/gulp watch"
     },
-    "description": "Resume is a simple, yet elegant resume and CV theme for Bootstrap 4.",
+    "description": "The resume of Clyde Westmoreland Jr, Software Engineer and User Experience Designer.",
     "keywords": [
         "css",
         "sass",
@@ -16,17 +16,17 @@
     ],
     "homepage": "http://iheartclyde.com",
     "bugs": {
-        "url": "https://github.com/clydejr/resume",
+        "url": "https://github.com/clydejr/Resume",
         "email": "catchclydejr@gmail.com"
     },
-    "license": "MIT",
+    "license": "KFK",
     "author": "Clyde Jr",
     "contributors": [
         "Clyde Jr (http://iheartclyde.com/)"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume.git"
+        "url": "https://github.com/clydejr/Resume.git"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "5.10.2",
