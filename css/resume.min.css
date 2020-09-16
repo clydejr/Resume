@@ -82,11 +82,40 @@
             font-weight:950;
             letter-spacing:.05rem;
             text-transform:uppercase;
+            color: #c1a3d4 !important;
         }
         
         #sideNav .navbar-toggler:focus{
             outline-color:#d48a6e;
         }
+
+         @media (min-width: 992px) {
+            #profile2 {
+              display: none !important;
+            }
+          }
+/*
+          @media (max-width: 992px) {
+            #profile2 {
+              max-width: 25% !important;
+              height: auto;
+            }
+          }
+
+          @media (min-width: 768px) {
+            #profile2 {
+              max-width: 25% !important;
+              height: auto;
+            }
+          }
+
+          @media (min-width: 600px) {
+            #profile2 {
+              max-width: 25% !important;
+              height: auto;
+            }
+          }   */
+
         
         @media (min-width:992px){
             #sideNav{

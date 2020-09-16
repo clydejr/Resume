@@ -10,6 +10,23 @@ body {
   color: #868e96;
 }
 
+@media (min-width: 768px) {
+  #selfie {
+    display: none;
+  }
+}
+
+/* @media (max-width: 768px) {
+  #profile {
+    display: none;
+  }
+} */
+@media (max-width: 992px) {
+  .d-md-block {
+    display: block !important;
+  }
+}
+
 @media (min-width: 992px) {
   body {
     padding-top: 0;
@@ -52,6 +69,7 @@ p.lead {
   font-weight: 500;
   font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 1.5rem;
+  text-align: right;
 }
 
 .social-icons a {
