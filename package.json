@@ -1,6 +1,6 @@
 {
-    "title": "Personal",
-    "name": "startbootstrap-personal",
+    "title": "Never Die Inc.",
+    "name": "clydejr-personal",
     "version": "1.0.1",
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
@@ -12,7 +12,7 @@
         "start": "npm run build && node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js"
     },
-    "description": "A personal website template built with Bootstrap",
+    "description": "A personal website built with Bootstrap",
     "keywords": [
         "css",
         "sass",
@@ -21,31 +21,31 @@
         "theme",
         "template"
     ],
-    "homepage": "https://startbootstrap.com/template-overviews/personal",
+    "homepage": "http://iheartclyde.com/",
     "bugs": {
-        "url": "https://github.com/StartBootstrap/startbootstrap-personal/issues",
-        "email": "feedback@startbootstrap.com"
+        "url": "http://iheartclyde.com",
+        "email": "catchclydejr@gmail.com"
     },
     "license": "MIT",
-    "author": "Start Bootstrap",
+    "author": "Clyde Jr",
     "contributors": [
-        "David Miller (https://davidmiller.io/)"
+        "Clyde Jr (http://iheartclyde.com/)"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/StartBootstrap/startbootstrap-personal.git"
+        "url": "https://github.com/clydejr/Resume.git"
     },
     "dependencies": {
         "bootstrap": "5.2.3"
     },
     "devDependencies": {
         "autoprefixer": "10.4.14",
-        "browser-sync": "2.29.1",
+        "browser-sync": "^3.0.2",
         "chokidar": "3.5.3",
         "concurrently": "6.3.0",
-        "postcss": "8.4.21",
+        "postcss": "^8.4.38",
         "prettier": "2.8.6",
-        "pug": "3.0.2",
+        "pug": "^3.0.3",
         "sass": "1.60.0",
         "shelljs": "0.8.5",
         "upath": "2.0.1"
