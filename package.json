@@ -1,18 +1,12 @@
 {
-    "title": "Never Die Inc.",
-    "name": "clydejr-personal",
-    "version": "1.0.1",
+    "title": "Resume",
+    "name": "clydejr-resume",
+    "version": "5.0.8",
     "scripts": {
-        "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
-        "build:assets": "node scripts/build-assets.js",
-        "build:pug": "node scripts/build-pug.js",
-        "build:scripts": "node scripts/build-scripts.js",
-        "build:scss": "node scripts/build-scss.js",
-        "clean": "node scripts/clean.js",
-        "start": "npm run build && node scripts/start.js",
-        "start:debug": "npm run build && node scripts/start-debug.js"
+        "start": "gulp watch",
+        "build": "gulp build"
     },
-    "description": "A personal website built with Bootstrap",
+    "description": "The resume of Clyde Westmoreland Jr, Cloud Engineer, Software Architect and User Experience Designer.",
     "keywords": [
         "css",
         "sass",
@@ -21,12 +15,12 @@
         "theme",
         "template"
     ],
-    "homepage": "http://iheartclyde.com/",
+    "homepage": "http://iheartclyde.com",
     "bugs": {
-        "url": "http://iheartclyde.com",
+        "url": "https://github.com/clydejr/Resume",
         "email": "catchclydejr@gmail.com"
     },
-    "license": "MIT",
+    "license": "KFK",
     "author": "Clyde Jr",
     "contributors": [
         "Clyde Jr (http://iheartclyde.com/)"
@@ -36,18 +30,34 @@
         "url": "https://github.com/clydejr/Resume.git"
     },
     "dependencies": {
-        "bootstrap": "5.2.3"
+        "@fortawesome/fontawesome-free": "^5.10.2",
+        "bootstrap": "^5.3.0",
+        "build": "^0.1.4",
+        "canvas-confetti": "^1.9.3",
+        "github-calendar": "^2.3.4",
+        "jquery": "3.4.1",
+        "jquery.easing": "^1.4.1",
+        "live-server": "^1.2.2",
+        "npx": "^10.2.2",
+        "open": "^6.0.0"
     },
     "devDependencies": {
-        "autoprefixer": "10.4.14",
-        "browser-sync": "^3.0.2",
-        "chokidar": "3.5.3",
-        "concurrently": "6.3.0",
-        "postcss": "^8.4.38",
-        "prettier": "2.8.6",
-        "pug": "^3.0.3",
-        "sass": "1.60.0",
-        "shelljs": "0.8.5",
-        "upath": "2.0.1"
+        "browser-sync": "2.26.7",
+        "chokidar": "^3.5.3",
+        "concurrently": "^7.6.0",
+        "del": "5.1.0",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "7.0.0",
+        "gulp-clean-css": "4.2.0",
+        "gulp-header": "2.0.9",
+        "gulp-plumber": "^1.2.1",
+        "gulp-rename": "1.4.0",
+        "gulp-sass": "5.1.0",
+        "gulp-uglify": "3.0.2",
+        "lodash": "^4.17.21",
+        "merge-stream": "2.0.0",
+        "sass": "1.77.0",
+        "shelljs": "^0.8.5",
+        "upath": "^2.0.1"
     }
 }

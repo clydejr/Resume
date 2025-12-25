@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Clyde Jr's Portfolio</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+        <link rel="manifest" href="assets/site.webmanifest">
+        <script src="https://kit.fontawesome.com/0830d8c1b6.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>  
+        <!-- Canvas Confetti Library -->
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Clyde Westomreland Jr</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#aboutMe">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#projectSect">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contactMe">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <!---HEADER SECTION WITH VIDEO INTRO-->
+            <!-- Portfolio Intro: Hologram -> Time-lapse -> Portrait Still -->
+<style>
+  /* Basic container + responsive sizing */
+  .intro-hero {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+  }
+
+  .intro-hero video {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .intro-hero img.final-portrait {
+    display: block;
+    width: 55%;
+    /* height: auto; */
+    background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%) !important;
+    object-fit: contain;
+    border-radius: 25px;
+    margin: 0 auto;
+  }
+
+  /* Portrait overlay initially hidden, fades in on video end */
+  .final-portrait {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 700ms ease;
+    pointer-events: none; /* so the portrait won't block clicks */
+  }
+
+  .final-portrait.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Tagline box on top of the video */
+  .hero-tagline {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.56);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Small visual fallback if video doesn't play */
+  .video-fallback {
+    display: none;
+    text-align: center;
+    padding: 18px;
+    background: #111;
+    color: #fff;
+  }
+  @media(prefers-reduced-motion: reduce) {
+    .final-portrait { transition: none; }
+  }
+</style>
+
+<div class="intro-hero" aria-label="Intro video: cloud hologram and project time-lapse">
+  <!-- Video element: webm first, then mp4 fallback -->
+  <video
+    id="introVideo"
+    autoplay
+    muted
+    playsinline
+    preload="metadata"
+    poster="https://clydeportfoliopictures.s3.us-east-1.amazonaws.com/profile_kaws.png"
+    aria-hidden="false"
+  >
+    <!-- WebM (Chrome, Firefox) -->
+    <source src="https://clydeportfoliopictures.s3.us-east-1.amazonaws.com/webm_intro.webm" type="video/webm">
+    <!-- MP4 (Safari / iOS) -->
+    <source src="https://clydeportfoliopictures.s3.us-east-1.amazonaws.com/intro.mp4" type="video/mp4">
+    <!-- Fallback content for very old browsers -->
+    Your browser does not support the video tag. <a href="https://clydeportfoliopictures.s3.us-east-1.amazonaws.com/intro.mp4">Download the video</a>.
+  </video>
+
+  <!-- Final portrait that fades in when the video ends -->
+  <img
+    id="finalPortrait"
+    class="final-portrait"
+    src="https://clydeportfoliopictures.s3.us-east-1.amazonaws.com/profile_kaws.png"
+    alt="Portrait of Clyde Westmoreland Jr"
+    aria-hidden="false"
+    decoding="async"
+  />
+
+  <!-- Short tagline overlay 
+   <div class="" aria-hidden="true">Cloud engineering and systems design — built piece by piece, with precision and scale.</div>-->
+
+  <!-- Visible fallback message for JS-disabled environments (optional) -->
+  <noscript>
+    <div class="video-fallback">Video unavailable. <a href="https://clydeportfoliopictures.s3.us-east-1.amazonaws.com/intro.mp4">Download MP4</a></div>
+  </noscript>
+</div>
+
+<section>
+    <div class="introTitle">
+        <h4>I design and build cloud-native applications, intelligent UIs integrated with real-time systems and AI-powered experiences.</h1>
+    </div>
+</section>
+
+<script>
+  (function () {
+    const video = document.getElementById('introVideo');
+    const portrait = document.getElementById('finalPortrait');
+
+    // Safety: if video cannot autoplay (browser policy), show portrait after a short delay
+    const AUTOPLAY_TIMEOUT_MS = 2500;
+    let autoplayFallbackTimer = setTimeout(() => {
+      if (video.paused && !portrait.classList.contains('visible')) {
+        portrait.classList.add('visible');
+      }
+    }, AUTOPLAY_TIMEOUT_MS);
+
+    // When the video ends, fade in the portrait overlay
+    video.addEventListener('ended', () => {
+      clearTimeout(autoplayFallbackTimer);
+
+    // Change image scaling after video ends
+    portrait.style.objectFit = "contain";
+    portrait.style.backgroundColor = "#000"; // prevents white bars on some browsers
+
+      // --- Smooth Fade-In Effect ---
+      portrait.style.opacity = "0";
+      portrait.style.display = "block";
+      portrait.style.transition = "opacity 1s ease"; // adjust duration if you like
+
+      requestAnimationFrame(() => {
+        portrait.style.opacity = "1";
+      });
+      // --- End Fade-In ---
+
+      try { video.pause(); } catch (e) {}
+      video.setAttribute('aria-hidden', 'true');
+    });
+
+    // If the user clicks/taps the portrait (CTA example)
+    portrait.addEventListener('click', () => {
+      const aiSection = document.querySelector('.portfolio-chat-section') || document.getElementById('chatSection');
+      if (aiSection) aiSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Optional: try autoplay again on first user interaction
+    function tryPlayOnInteraction() {
+      if (video.paused) {
+        video.play().catch(() => {
+          portrait.classList.add('visible');
+        });
+      }
+      ['click','touchstart','keydown'].forEach(evt =>
+        window.removeEventListener(evt, tryPlayOnInteraction)
+      );
+    }
+    ['click','touchstart','keydown'].forEach(evt =>
+      window.addEventListener(evt, tryPlayOnInteraction)
+    );
+  })();
+</script>
+
+<style>
+    /* Floating CTA Button */
+    .floating-cta {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      
+      background: linear-gradient(135deg, #8B3FFF 0%, #6B46C1 100%);
+      color: white;
+      
+      padding: 16px 32px;
+      border: none;
+      border-radius: 50px;
+      
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      
+      box-shadow: 0 4px 20px rgba(139, 63, 255, 0.4);
+      
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 0.3s ease;
+      
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .floating-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floating-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(139, 63, 255, 0.5);
+    }
+
+    .floating-cta:active {
+      transform: translateY(-1px);
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      
+      display: none;
+      align-items: center;
+      justify-content: center;
+      
+      z-index: 1000;
+      
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+    
+    /* Ensure confetti shows above modal */
+    canvas {
+      position: fixed !important;
+      z-index: 10000 !important;
+      pointer-events: none !important;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* Modal Container */
+    .modal-container {
+      position: relative;
+      background: white;
+      
+      width: 90%;
+      max-width: 550px;
+      max-height: 90vh;
+      
+      border-radius: 16px;
+      padding: 40px 32px;
+      
+      overflow-y: auto;
+      
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-backdrop.active .modal-container {
+      transform: scale(1);
+    }
+
+    /* Close Button */
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      
+      background: none;
+      border: none;
+      
+      width: 32px;
+      height: 32px;
+      
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      font-size: 24px;
+      color: #666;
+    }
+
+    .modal-close:hover {
+      opacity: 1;
+    }
+
+    /* Modal Content */
+    .modal-content h2 {
+      margin: 0 0 8px 0;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .modal-subtitle {
+      margin: 0 0 32px 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Form Styling */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      
+      border: 2px solid #e5e5e5;
+      border-radius: 8px;
+      
+      font-size: 16px;
+      font-family: inherit;
+      
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #8B3FFF;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-group input.error,
+    .form-group textarea.error {
+      border-color: #FF4444;
+    }
+
+    .error-message {
+      color: #FF4444;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .error-message.visible {
+      display: block;
+    }
+
+    /* Submit Button */
+    .submit-button {
+      width: 100%;
+      padding: 14px 24px;
+      
+      background: linear-gradient(135deg, #8B3FFF 0%, #6B46C1 100%);
+      color: white;
+      
+      border: none;
+      border-radius: 8px;
+      
+      font-size: 16px;
+      font-weight: 600;
+      
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .submit-button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 63, 255, 0.3);
+    }
+
+    .submit-button:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .submit-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Alternative Contact */
+    .alternative-contact {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e5e5;
+      text-align: center;
+    }
+
+    .alternative-contact p {
+      margin: 0 0 12px 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #8B3FFF;
+      text-decoration: none;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .contact-links a:hover {
+      opacity: 0.7;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .success-message.visible {
+      display: block;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: #00CC66;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 32px;
+      color: white;
+      animation: scaleIn 0.4s ease;
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+
+    .success-message h3 {
+      margin: 0 0 12px 0;
+      font-size: 24px;
+      color: #1a1a1a;
+    }
+
+    .success-message p {
+      margin: 0;
+      color: #666;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .floating-cta {
+        bottom: 20px;
+        right: 20px;
+        padding: 14px 24px;
+        font-size: 15px;
+      }
+
+      .modal-container {
+        width: calc(100% - 32px);
+        height: calc(100% - 64px);
+        max-height: none;
+        
+        padding: 24px 20px;
+        border-radius: 20px;
+      }
+      
+      .modal-backdrop {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      
+      .modal-content h2 {
+        font-size: 24px;
+      }
+      
+      .form-group {
+        margin-bottom: 16px;
+      }
+      
+      .modal-subtitle {
+        margin-bottom: 24px;
+      }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .floating-cta,
+      .modal-backdrop,
+      .modal-container {
+        transition: opacity 0.2s;
+      }
+    }
+</style>
+
+<!--HIRE ME-->
+<!-- Floating CTA Button -->
+<button class="floating-cta" id="hireMeBtn" aria-label="Contact me for opportunities">
+<span>💼</span>
+<span>Hire Me</span>
+</button>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="contactBackdrop">
+    <div class="modal-container" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" id="closeBtn" aria-label="Close modal">✕</button>
+        
+        <div class="modal-content">
+            <h2 id="modal-title">Let's Work Together</h2>
+            <p class="modal-subtitle">I typically respond within 24 hours</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message" id="nameError">Please enter your name</span>
+                </div>
+                
+                <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError">Please enter a valid email</span>
+                </div>
+                
+                <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <span class="error-message" id="messageError">Please enter a message</span>
+                </div>
+                
+                <button type="submit" class="submit-button" id="submitBtn">
+                Send Message
+                </button>
+            </form>
+        
+            <!-- Success Message (hidden by default) -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✓</div>
+                <h3>Thank You!</h3>
+                <p>Your message has been sent successfully. Talk soon!</p>
+            </div>            
+            
+            <div class="alternative-contact">
+                <p>Or reach me directly:</p>
+                <div class="contact-links">
+                    <a href="mailto:catchclydejr@gmail.com">📧 Email</a>
+                    <a href="https://linkedin.com/in/clydejr" target="_blank">💼 LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Skill Cards Row-->
+<section>
+    <div class="row">
+    <div class="cardColumn">
+        <div class="skillsCard">
+    <i class="fa-regular fa-cloud fa-3x" style="color: #74C0FC;"></i>
+        <h3>Engineering</h3>
+        <p>Cloud-native apps, Continuous Integration/Continuous Deployment </p>
+        </div>
+    </div>
+
+    <div class="cardColumn">
+        <div class="skillsCard">
+        <i class="fa-solid fa-sitemap fa-3x" style="color: #74C0FC;"></i>
+        <h3>Architecture</h3>
+        <p>API-Design • Data Modeling • Event-Driven Systems • Multicloud Architecture</p>
+        </div>
+    </div>
+    
+    <div class="cardColumn">
+        <div class="skillsCard">
+            <i class="fa-solid fa-mobile-screen fa-3x" style="color: #74C0FC;"></i>
+        <h3>AI / UX</h3>
+        <p>Conversational Interfaces • Reponsive Mobile Design • RAG Knowledge Bases</p>
+        </div>
+    </div>
+    </div>
+</section>
+
+            <!-- Chat Section-->
+             <span style="text-align:center;margin: 0 auto;">
+                <h1>Ask Clyde's AI Assistant</h1>
+                <p>An interactive knowledge base trained on my professional experience, projects and background.</p>
+            </span>
+            <section class="portfolio-chat-section aws-theme" id="chatSection">
+                <div class="chat-toggle">
+                <button class="aws-btn" id="awsBtn">AWS Assistant</button>
+                <button class="gemini-btn" id="geminiBtn">Gemini Assistant</button>
+                </div>
+
+                <div class="chat-container">
+                <div class="chat-header">
+                    <h3 id="chatTitle">AWS Assistant</h3>
+                    <p id="chatSubtitle">Powered by AWS Cloud Native</p>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message" id="welcomeMsg">👋 Welcome! Ask me about my AWS-powered projects.</div>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" placeholder="Ask me about AWS projects..." />
+                    <button id="chatMeBtn" class="chat-send-btn">Send</button>
+                </div>
+                </div>
+            </section>
+
+             <!--Mid Section Title-->
+    <section>
+        <div class="introTitle">
+            <h4>Engineering beautiful systems ⸺ from front-end UX to cloud architecture.</h1>
+        </div>
+    </section>
+
+            <!-- About Me Section-->
+            <section id="aboutMe" class="py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-xxl-8">
+                            <div class="text-center my-5">
+                                <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
+                                <p class="lead fw-light mb-4">Hi, I’m Clyde — a tech generalist turned Cloud Engineer with 20 years of hands-on experience building smart, scalable solutions across the stack.</p>
+                                <p class="lead" style="background-color: #c8208f;color: #fff;font-weight:400">Fueled by curiosity and growth, I’ve spent two decades exploring every corner of the Tech industry and today, I channel that journey into crafting modern, cloud-native applications that move businesses forward</p>
+                                <div class="d-flex justify-content-center fs-2 gap-4">
+                                    <a class="text-gradient" href="https://www.linkedin.com/in/clydejr/"><i class="bi bi-linkedin"></i></a>
+                                    <a class="text-gradient" href="https://github.com/clydejr"><i class="bi bi-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!----ALL ABOUT MY EXPERIENCE TIMELINE-->
+            <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Learn More About My Journey</h2>
+                    <!-- <h3 class="section-subheading text-muted">Learn more about where I've been.</h3> -->
+                </div>
+                <ul class="timeline">                    
+                    <li>
+                        <div class="timeline-image">
+                            <h4>
+                                Be Part
+                                <br>
+                                Of My
+                                <br>
+                                Story!
+                            </h4>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/about/3.jpg" alt="..."></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2019–2025</h4>
+                                <h4 class="subheading">Software Architect & Engineering Leadership</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">For over six years at JEA, I've led the enterprise-wide redesign of JEA.com serving 400K+ customers, architecting a modern, 
+                                    WCAG-compliant platform using Vue.js and Bootstrap optimized for scalability, security, and maintainability. I spearheaded the integration of Optimizely 
+                                    CMS, architected a customer-facing chatbot using JavaScript and third-party messaging APIs, and developed reusable front-end components to maintain 
+                                    design consistency across microsites. Working alongside DevOps engineers, I designed CI/CD pipelines via Azure DevOps and serve as the technical liaison 
+                                    between JEA and external agencies, advising on technology stack selection, accessibility standards, and enterprise integration. I've instrumented 
+                                    comprehensive analytics using Google Tag Manager and Google Analytics, providing real-time performance insights that drive continuous improvement.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/about/4.jpg" alt="..."></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2016-2020</h4>
+                                <h4 class="subheading">Full-Stack Development Era</h4>
+                                <h4 class="subheading">Red62 & Contract Engagements</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    For four years, I immersed myself in modern full-stack development through a series of strategic contract engagements. At Red62, I built robust 
+                                    applications using the MERN stack, developed RESTful APIs with Node.js and AWS Lambda, and created hybrid mobile apps using React and Electron. Concurrent 
+                                    contracts at Miller Electric Company allowed me to co-architect Vue.js applications with real-time Cloud SQL databases and build executive dashboards using 
+                                    Google Cloud Platform's suite of tools. At CompassMSP, I worked with Angular 5 and TypeScript while managing AWS infrastructure. These overlapping engagements 
+                                    accelerated my growth, exposing me to diverse tech stacks, architectural patterns, and client needs across construction, MSP, and software development industries. 
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <!--KASH FOR KEEPZ-->
+                    <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <a href="www.kashforkeepz.com">
+                            <img class="rounded-circle img-fluid" src="assets/about/kfk_placeholder.jpg" alt="...">
+                        </a>
+                    </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2007 - 2020</h4>
+                                <h4>Entrepreneurial Venture</h4>
+                                <h4 class="subheading">Kash For Keepz, Inc.</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    In September 2007, while working full-time in New York, I co-created and launched KashForKeepz, a lifestyle brand focused on the niche market of skateboarding and streetwear 
+                                    culture. As co-creator and Chief Executive Officer, I managed full business operations for 13 years—from identifying wholesale manufacturers for skateboards to garment sourcing, 
+                                    screenprinting, embroidery, and building relationships with brick and mortar retailers, digital marketplaces, and industry partners.
+                                </p>
+                                <p>
+                                    After a strategic hiatus beginning in 2020, I'm relaunching the brand with a modern eCommerce platform and refined strategy, leveraging the technical and product development expertise 
+                                    I've gained as a software architect. Click the logo image to explore what's next for KashForKeepz.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/about/3.jpg" alt="..."></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2017</h4>
+                                <h4 class="subheading">The Developer Pivot</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">After nearly a decade mastering infrastructure and hardware support, I made a deliberate career transition into software development. At TIAA Bank, 
+                                    I worked as a Front-End JavaScript Developer within an agile-waterfall hybrid environment, enhancing the Microsoft CRM Dynamics 365 Framework. This role marked my shift 
+                                    from supporting technology to building it—working with HTML, CSS, jQuery, and diving into the full software development lifecycle from requirements gathering through production 
+                                    deployment. This pivot was the catalyst that transformed my career trajectory.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!--MERRILL LYNCH-->
+                    <!--FinTech Infrastructure Mastery
+                    As a result of the 2008 financial crisis, Bank of America acquired Merrill Lynch and as I was making a return to the financial organization, 
+                    my tasks were realigned under the direction of BOA's technology strategy. I spent 8 years navigating various sectors of the technology department 
+                    within BOA and Merrill Lynch as an infrastructure engineer focusing on maintaining the servers, supporting the network throughout multiple campuses 
+                    and the day to day behind the scenes infrastructure utilized by employees and banking customers. During this time, I provided hands-on support to over 
+                    4,000 associates, developed VB scripts for server migration projects, and became deeply familiar with enterprise-scale technology operations in a highly 
+                    regulated financial environment.
+                    -->
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/about/FinTech.jpeg" alt="..."></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2009-2017</h4>
+                                <h4 class="subheading">FinTech Infrastructure Mastery</h4>
+                                <h4 class="subheading">Bank of America / Merrill Lynch</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    As a result of the 2008 financial crisis, Bank of America acquired Merrill Lynch and as I was making a return to the financial organization, 
+                                    my tasks were realigned under the direction of BOA's technology strategy. I spent 8 years navigating various sectors of the technology department 
+                                    within BOA and Merrill Lynch as an infrastructure engineer focusing on maintaining the servers, supporting the network throughout multiple campuses 
+                                    and the day to day behind the scenes infrastructure utilized by employees and banking customers. During this time, I provided hands-on support to over 
+                                    4,000 associates, developed VB scripts for server migration projects, and became deeply familiar with enterprise-scale technology operations in a highly 
+                                    regulated financial environment.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/about/1.jpg" alt="..."></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2009</h4>
+                                <h4 class="subheading">Disney</h4>
+                                <h5 class="subheading">Disney Cruise Line</h5>
+                            </div>
+                            <div class="timeline-body">
+                                <p>
+                                In summer 2009, I joined Disney Cruise Line as a cast member focusing on infrastructure and hardware support for onboard 
+                                and shoreside cruise operations, going onboard ships docked at Port Canaveral to collaborate with technology crews on persisting 
+                                issues and intricate maintenance projects. This diverse early experience—from call centers to Wall Street to cruise ships—taught me 
+                                how technology infrastructure serves vastly different business needs and customer experiences.
+                                </p>
+                            </div>
+                        </div>
+                    </li>     
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/about/1.jpg" alt="..."></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2006-2009</h4>
+                                <h4 class="subheading">Humble Beginnings</h4>
+                                <h5 class="subheading">Convergys Corp., Merrill Lynch & Disney Cruise Line</h5>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                My technology journey began in May 2006 at Convergys Corp. as a Java Developer, where I focused on 
+                                research and development of call center software while documenting user-experience issues with internal tools. 
+                                In May 2007, I transitioned to Merrill Lynch in Manhattan's financial district as a Technology Support Engineer, 
+                                managing hands-on maintenance, repairs, and deployment of computers, network infrastructure, and systems. </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </section>
+            
+            <!--Github Calendar-->
+            <!-- Prepare a container for your calendar. -->
+            <section id="gitCal">
+                <div class="calendar">
+                    <!-- Loading stuff -->
+                    Loading the data just for you.
+                </div>
+            </section>
+
+            <!-- Projects Section-->
+            <section id="projectSect" class="py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+                    </div>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-9 col-xxl-12">
+                            <!-- Project Card 1-->
+                            <div class="projectCard">
+                                    <div class="p-2">
+                                        <h2 class="fw-bolder">Live Chat Agent</h2>
+                                        <p>Built a customer-facing chat bot allowing secure, scalable real-time communication between users and customer service agents
+                                        </p>
+                                    </div>
+                                    
+                                    <video id="demoVideo" width="100%" controls="" muted="" autoplay="" playsinline="" style="border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                                        <source src="ECE_Chat.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <script> const vid = document.getElementById("demo");
+                                                vid.playbackRate = 2.0; // double speed
+                                    </script>
+                            </div>
+
+                            <!-- Project Card 2-->
+                            <div class="projectCard">
+                                <div class="p-2">
+                                    <h2 class="fw-bolder">KashForKeepz eCommerce</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe 
+                                        recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!
+                                    </p>
+                                    <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d" alt="...">
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+        <!-- Footer-->
+        <footer class="py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="footer small m-0">Copyright &copy; Westmoreland & Co. 2025</div></div>
+                </div>
+            </div>
+        </footer>
+
+        <!--Github Calendar-->
+        <script>
+            GitHubCalendar(".calendar", "clydejr");
+
+            // or enable responsive functionality:
+            GitHubCalendar(".calendar", "clydejr", { responsive: true });
+
+            // Use a proxy
+            GitHubCalendar(".calendar", "clydejr", {
+            proxy (username) {
+                return fetch(`https://your-proxy.com/github?user=${username}`)
+            }
+            }).then(r => r.text())
+        </script>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    </body>
+</html>
